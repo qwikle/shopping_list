@@ -20,7 +20,7 @@ class SignInView extends GetView<SignInController> {
           'SignInView is working',
           style: TextStyle(fontSize: 20),
         ),
-      ),floatingActionButton: FloatingActionButton(onPressed: () => Get.changeThemeMode(ThemeMode.light),),
+      ),
     );
   }
 }
