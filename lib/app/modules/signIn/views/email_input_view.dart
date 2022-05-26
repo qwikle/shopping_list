@@ -25,10 +25,8 @@ class EmailInputView extends GetView<SignInController> {
     return Obx((() => TextField(
           onChanged: controller.onEmailChanged,
           decoration: InputDecoration(
-              hintText: 'Email',
+              label: const Text('Email'),
               errorText: _errorMessage(),
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(30)),
               suffixIcon: const Icon(Icons.close)),
         )));
   }
