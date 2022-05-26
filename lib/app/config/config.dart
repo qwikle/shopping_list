@@ -21,9 +21,7 @@ ThemeData theme = ThemeData(
   ),
   primaryColor: primaryColor,
   inputDecorationTheme: InputDecorationTheme(
-    labelStyle: const TextStyle(
-      color: primaryColor
-    ),
+    floatingLabelStyle: const TextStyle(color: primaryColor),
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: primaryColor),
       borderRadius: borderRadius,
