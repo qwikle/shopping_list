@@ -27,7 +27,7 @@ class EmailInputView extends GetView<SignInController> {
           decoration: InputDecoration(
               label: const Text('Email'),
               errorText: _errorMessage(),
-              suffixIcon: const Icon(Icons.close)),
+              suffixIcon: const Icon(Icons.cancel_outlined)),
         )));
   }
 }
