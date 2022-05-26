@@ -23,6 +23,7 @@ ThemeData theme = ThemeData(
   ),
   primaryColor: primaryColor,
   inputDecorationTheme: InputDecorationTheme(
+    isDense: true,
     suffixIconColor: MaterialStateColor.resolveWith((states) {
       if (states.contains(MaterialState.focused) &&
           !states.contains(MaterialState.error)) {
