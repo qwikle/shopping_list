@@ -20,7 +20,7 @@ class SignInView extends GetView<SignInController> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const EmailInputView(),
+                EmailInputView(),
                 Padding(padding: EdgeInsets.all(1.h)),
                 const PasswordInputView(),
               ],
