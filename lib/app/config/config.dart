@@ -9,6 +9,7 @@ String apiUrl =
     !Platform.isAndroid ? 'http://127.0.0.1:3333' : 'http://10.0.2.2:3333';
 
 const Color primaryColor = Color(0xff6750A4);
+const Color clearFieldColor = Color(0xff6750A4);
 BorderRadius borderRadius = BorderRadius.circular(30.h);
 
 ThemeData theme = ThemeData(
@@ -21,6 +22,11 @@ ThemeData theme = ThemeData(
   ),
   primaryColor: primaryColor,
   inputDecorationTheme: InputDecorationTheme(
+    suffixIconColor: clearFieldColor,
+    prefixIconColor: clearFieldColor,
+    labelStyle: const TextStyle(
+      color: primaryColor
+    ),
     floatingLabelStyle: const TextStyle(color: primaryColor),
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: primaryColor),
