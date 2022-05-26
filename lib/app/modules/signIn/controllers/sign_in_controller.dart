@@ -28,6 +28,10 @@ class SignInController extends GetxController {
     _validateStatus();
   }
 
+  clearEmail() {
+    email.value = const EmailInput.dirty(value: '');
+  }
+
   onPasswordChanged(String passwordValue) {
     password.value = PasswordInput.dirty(value: passwordValue);
     _validateStatus();
