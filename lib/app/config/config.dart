@@ -8,12 +8,14 @@ String apiUrl =
     !Platform.isAndroid ? 'http://127.0.0.1:3333' : 'http://10.0.2.2:3333';
 
 ThemeData theme = ThemeData(
-    appBarTheme: AppBarTheme(
-      elevation: 0,
-      backgroundColor: Colors.transparent,
-      titleTextStyle: GoogleFonts.poppins(color: Colors.black),
-      centerTitle: false,
-    ),
-    primaryColor: const Color(0xff6750A4));
+  appBarTheme: AppBarTheme(
+    elevation: 0,
+    backgroundColor: Colors.transparent,
+    titleTextStyle: GoogleFonts.poppins(color: Colors.black),
+    centerTitle: false,
+  ),
+  primaryColor: const Color(0xff6750A4),
+  inputDecorationTheme: InputDecorationTheme(filled: true, isDense: true),
+);
 
 ThemeData darkTheme = ThemeData(scaffoldBackgroundColor: Colors.black26);
