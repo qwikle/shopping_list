@@ -33,7 +33,7 @@ class SignInController extends GetxController {
     _validateStatus();
   }
 
-  obscureText() => !obscure.value;
+  obscureText() => obscure.value = !obscure.value;
 
   signIn() async {
     status.value = FormzStatus.submissionInProgress;

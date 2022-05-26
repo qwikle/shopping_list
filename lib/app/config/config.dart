@@ -10,6 +10,7 @@ String apiUrl =
 
 const Color primaryColor = Color(0xff6750A4);
 const Color clearFieldColor = Color(0xff6750A4);
+const Color errorColor = Color(0xffb3261E);
 BorderRadius borderRadius = BorderRadius.circular(30.h);
 
 ThemeData theme = ThemeData(
@@ -22,12 +23,27 @@ ThemeData theme = ThemeData(
   ),
   primaryColor: primaryColor,
   inputDecorationTheme: InputDecorationTheme(
-    suffixIconColor: clearFieldColor,
+    suffixIconColor: MaterialStateColor.resolveWith((states) {
+      if (states.contains(MaterialState.focused) &&
+          !states.contains(MaterialState.error)) {
+        return primaryColor;
+      }
+      if (states.contains(MaterialState.error)) {
+        return errorColor;
+      }
+      return Colors.black;
+    }),
     prefixIconColor: clearFieldColor,
-    labelStyle: const TextStyle(
-      color: primaryColor
-    ),
-    floatingLabelStyle: const TextStyle(color: primaryColor),
+    floatingLabelStyle: MaterialStateTextStyle.resolveWith((states) {
+      if (states.contains(MaterialState.focused) &&
+          !states.contains(MaterialState.error)) {
+        return const TextStyle(color: primaryColor);
+      }
+      if (states.contains(MaterialState.error)) {
+        return const TextStyle(color: errorColor);
+      }
+      return const TextStyle();
+    }),
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: primaryColor),
       borderRadius: borderRadius,
