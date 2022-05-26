@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
-import 'package:shopping_list/app/data/models/token_model.dart';
-import 'package:shopping_list/app/exceptions/sign_in_exception.dart';
 
 import '../../../config/config.dart';
+import '../../../data/models/token_model.dart';
+import '../../../exceptions/sign_in_exception.dart';
 
 class SignInProvider extends GetConnect {
   @override

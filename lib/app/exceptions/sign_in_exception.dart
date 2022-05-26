@@ -1,7 +1,5 @@
 class SignInFailureException implements Exception {
-  const SignInFailureException([
-    this.message = 'An unknown error occurred.'
-  ]);
+  const SignInFailureException([this.message = 'An unknown error occurred.']);
   final String message;
   factory SignInFailureException.fromCode(int code) {
     switch (code) {
