@@ -16,6 +16,7 @@ void main() {
           title: "Application",
           theme: theme,
           themeMode: ThemeMode.system,
+          defaultTransition: Transition.fadeIn,
           darkTheme: darkTheme,
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
