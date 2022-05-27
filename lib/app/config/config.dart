@@ -70,6 +70,10 @@ ThemeData theme = ThemeData(
       ),
     ),
   ),
+
+  textTheme: TextTheme(
+    bodyText2: GoogleFonts.roboto(),
+  ),
 );
 
 ThemeData darkTheme = ThemeData(scaffoldBackgroundColor: Colors.black26);
