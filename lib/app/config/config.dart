@@ -14,12 +14,12 @@ const Color errorColor = Color(0xffb3261E);
 BorderRadius borderRadius = BorderRadius.circular(30.h);
 
 ThemeData theme = ThemeData(
-    useMaterial3: true,
+  useMaterial3: true,
   appBarTheme: AppBarTheme(
     elevation: 0,
     backgroundColor: Colors.transparent,
-    titleTextStyle: GoogleFonts.quicksand(color: Colors.black),
-    centerTitle: false,
+    titleTextStyle: GoogleFonts.quicksand(color: primaryColor),
+    centerTitle: true,
   ),
   primaryColor: primaryColor,
 
