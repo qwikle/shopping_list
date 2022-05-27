@@ -1,8 +1,9 @@
 import 'package:formz/formz.dart';
 
-enum ConfirmationValidator { empty, misMatch }
+enum ConfirmationValidationError { empty, misMatch }
 
-class ConfirmationInput extends FormzInput<String, ConfirmationValidator> {
+class ConfirmationInput
+    extends FormzInput<String, ConfirmationValidationError> {
   const ConfirmationInput.pure(this.field) : super.pure('');
   const ConfirmationInput.dirty(this.field, {String value = ''})
       : super.dirty(value);
@@ -10,9 +11,9 @@ class ConfirmationInput extends FormzInput<String, ConfirmationValidator> {
   final String field;
 
   @override
-  ConfirmationValidator? validator(String value) {
-    if (value.isEmpty) return ConfirmationValidator.empty;
-    if (field != value) return ConfirmationValidator.misMatch;
+  ConfirmationValidationError? validator(String value) {
+    if (value.isEmpty) return ConfirmationValidationError.empty;
+    if (field != value) return ConfirmationValidationError.misMatch;
     return null;
   }
 }
