@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:shopping_list/app/routes/app_pages.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../config/config.dart';
@@ -27,7 +28,9 @@ class SignInView extends GetView<SignInController> {
               children: [
                 Text(
                   'Shopping App',
-                  style: TextStyle(fontSize: 3.h,),
+                  style: TextStyle(
+                    fontSize: 3.h,
+                  ),
                 ),
                 Padding(padding: EdgeInsets.all(2.h)),
                 SvgPicture.asset(
@@ -47,10 +50,12 @@ class SignInView extends GetView<SignInController> {
                   children: [
                     const Text("Pas encore de compte ? "),
                     TextButton(
-                        onPressed: () => null,
-                        child: const Text("S'inscrire"),
-                        style: TextButton.styleFrom(
-                            textStyle: const TextStyle(color: primaryColor)))
+                      onPressed: () => Get.offNamed(Routes.SIGN_UP),
+                      child: const Text("S'inscrire"),
+                      style: TextButton.styleFrom(
+                        primary: primaryColor,
+                      ),
+                    )
                   ],
                 )
               ],
