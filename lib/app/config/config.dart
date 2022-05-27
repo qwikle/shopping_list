@@ -18,8 +18,8 @@ ThemeData theme = ThemeData(
   appBarTheme: AppBarTheme(
     elevation: 0,
     backgroundColor: Colors.transparent,
-    titleTextStyle: GoogleFonts.quicksand(color: Colors.black),
-    centerTitle: false,
+    titleTextStyle: GoogleFonts.quicksand(color: primaryColor),
+    centerTitle: true,
   ),
   primaryColor: primaryColor,
 
