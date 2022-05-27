@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:shopping_list/app/modules/signIn/views/button_view.dart';
 import 'package:shopping_list/app/modules/signIn/views/password_input_view.dart';
 import 'package:sizer/sizer.dart';
 import '../controllers/sign_in_controller.dart';
@@ -15,7 +16,7 @@ class SignInView extends GetView<SignInController> {
       body: Padding(
         padding: EdgeInsets.all(2.h),
         child: Align(
-          alignment: const Alignment(0, -1 / 3),
+          alignment: const Alignment(0, -1 / 6),
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -23,6 +24,7 @@ class SignInView extends GetView<SignInController> {
                 EmailInputView(),
                 Padding(padding: EdgeInsets.all(1.h)),
                 const PasswordInputView(),
+                ButtonView()
               ],
             ),
           ),
