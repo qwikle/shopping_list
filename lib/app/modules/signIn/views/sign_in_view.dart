@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../config/config.dart';
 import '../controllers/sign_in_controller.dart';
 import 'button_view.dart';
 import 'email_input_view.dart';
@@ -34,12 +35,24 @@ class SignInView extends GetView<SignInController> {
                   height: 20.h,
                   fit: BoxFit.contain,
                 ),
-                Padding(padding: EdgeInsets.all(3.h)),
+                Padding(padding: EdgeInsets.all(2.h)),
                 EmailInputView(),
-                Padding(padding: EdgeInsets.all(3.h)),
+                Padding(padding: EdgeInsets.all(2.h)),
                 const PasswordInputView(),
-                Padding(padding: EdgeInsets.all(3.h)),
-                const ButtonView()
+                Padding(padding: EdgeInsets.all(2.h)),
+                const ButtonView(),
+                Padding(padding: EdgeInsets.all(5.h)),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text("Pas encore de compte ? "),
+                    TextButton(
+                        onPressed: () => null,
+                        child: const Text("S'inscrire"),
+                        style: TextButton.styleFrom(
+                            textStyle: const TextStyle(color: primaryColor)))
+                  ],
+                )
               ],
             ),
           ),
