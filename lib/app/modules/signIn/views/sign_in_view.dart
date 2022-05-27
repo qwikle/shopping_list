@@ -24,7 +24,17 @@ class SignInView extends GetView<SignInController> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SvgPicture.asset('assets/svg/shopping.svg'),
+                Text(
+                  'Shopping App',
+                  style: TextStyle(fontSize: 3.h,),
+                ),
+                Padding(padding: EdgeInsets.all(2.h)),
+                SvgPicture.asset(
+                  'assets/svg/shopping.svg',
+                  height: 20.h,
+                  fit: BoxFit.contain,
+                ),
+                Padding(padding: EdgeInsets.all(3.h)),
                 EmailInputView(),
                 Padding(padding: EdgeInsets.all(3.h)),
                 const PasswordInputView(),
