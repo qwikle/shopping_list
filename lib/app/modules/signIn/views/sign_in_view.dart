@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shopping_list/app/routes/app_pages.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../config/config.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/sign_in_controller.dart';
 import 'button_view.dart';
 import 'email_input_view.dart';
