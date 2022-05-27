@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 
+import 'package:formz/formz.dart';
 import 'package:get/get.dart';
 
 import '../../../inputs/password_input.dart';
 import '../controllers/sign_in_controller.dart';
 
 class PasswordInputView extends GetView<SignInController> {
-  const PasswordInputView({Key? key}) : super(key: key);
+  PasswordInputView({Key? key}) : super(key: key);
 
+  final TextEditingController _textEditingController = TextEditingController();
   String? _errorMessage() {
     if (controller.password.value.invalid) {
       if (controller.password.value.error == PasswordValidationError.empty) {
@@ -20,6 +22,10 @@ class PasswordInputView extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => TextField(
+          controller: _textEditingController
+            ..text = controller.status.value == FormzStatus.submissionFailure
+                ? ''
+                : controller.password.value.value,
           keyboardType: TextInputType.visiblePassword,
           obscureText: controller.obscure.value,
           onChanged: controller.onPasswordChanged,
