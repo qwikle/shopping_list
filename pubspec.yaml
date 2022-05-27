@@ -7,7 +7,7 @@ environment:
 
 dependencies: 
   cupertino_icons: ^1.0.2
-  get: 
+  get: any
   http: 0.13.4
   sizer: 2.0.15
   flutter_svg: 1.1.0
@@ -19,6 +19,9 @@ dependencies:
   formz: 0.4.1
   google_fonts: 2.3.2
   get_storage: 2.0.3
+  file_picker: 4.6.0
+  intl: 0.17.0
+  timeago: 3.2.2
   flutter: 
     sdk: flutter
 
@@ -28,7 +31,8 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
-  uses-material-design: true
-  assets:
+  assets: 
     - assets/svg/
     - assets/icons/
+  uses-material-design: true
+

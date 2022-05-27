@@ -6,6 +6,8 @@ import '../modules/signIn/bindings/sign_in_binding.dart';
 import '../modules/signIn/views/sign_in_view.dart';
 import '../modules/signUp/bindings/sign_up_binding.dart';
 import '../modules/signUp/views/sign_up_view.dart';
+import '../modules/sucessSign/bindings/sucess_sign_binding.dart';
+import '../modules/sucessSign/views/sucess_sign_view.dart';
 import 'middlewares/auth_middleware.dart';
 
 part 'app_routes.dart';
@@ -32,6 +34,11 @@ class AppPages {
       name: _Paths.SIGN_UP,
       page: () => SignUpView(),
       binding: SignUpBinding(),
+    ),
+    GetPage(
+      name: _Paths.SUCESS_SIGN,
+      page: () => SucessSignView(),
+      binding: SucessSignBinding(),
     ),
   ];
 }
