@@ -20,7 +20,7 @@ class PasswordInputView extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => TextField(
-      keyboardType: TextInputType.visiblePassword,
+          keyboardType: TextInputType.visiblePassword,
           obscureText: controller.obscure.value,
           onChanged: controller.onPasswordChanged,
           decoration: InputDecoration(
