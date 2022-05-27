@@ -22,6 +22,8 @@ ThemeData theme = ThemeData(
     centerTitle: false,
   ),
   primaryColor: primaryColor,
+
+  //Input Decoration
   inputDecorationTheme: InputDecorationTheme(
     errorStyle: GoogleFonts.poppins(
       color: errorColor,
@@ -54,6 +56,18 @@ ThemeData theme = ThemeData(
     ),
     border: OutlineInputBorder(
       borderRadius: borderRadius,
+    ),
+  ),
+
+  //ElevatedButtonDecoration
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      primary: primaryColor,
+      fixedSize: Size(100.w, 5.h),
+      textStyle: const TextStyle(
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+      ),
     ),
   ),
 );
