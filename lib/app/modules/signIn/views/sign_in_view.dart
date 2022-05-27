@@ -42,7 +42,7 @@ class SignInView extends GetView<SignInController> {
                 SizedBox(height: 3.h),
                 EmailInputView(),
                 SizedBox(height: 5.h),
-                const PasswordInputView(),
+                PasswordInputView(),
                 SizedBox(height: 6.h),
                 const ButtonView(),
                 SizedBox(height: 10.h),
