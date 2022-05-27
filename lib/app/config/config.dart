@@ -18,11 +18,14 @@ ThemeData theme = ThemeData(
   appBarTheme: AppBarTheme(
     elevation: 0,
     backgroundColor: Colors.transparent,
-    titleTextStyle: GoogleFonts.poppins(color: Colors.black),
+    titleTextStyle: GoogleFonts.quicksand(color: Colors.black),
     centerTitle: false,
   ),
   primaryColor: primaryColor,
   inputDecorationTheme: InputDecorationTheme(
+    errorStyle: GoogleFonts.poppins(
+      color: errorColor,
+    ),
     isDense: true,
     suffixIconColor: MaterialStateColor.resolveWith((states) {
       if (states.contains(MaterialState.focused) &&
@@ -38,12 +41,12 @@ ThemeData theme = ThemeData(
     floatingLabelStyle: MaterialStateTextStyle.resolveWith((states) {
       if (states.contains(MaterialState.focused) &&
           !states.contains(MaterialState.error)) {
-        return const TextStyle(color: primaryColor);
+        return GoogleFonts.poppins(color: primaryColor);
       }
       if (states.contains(MaterialState.error)) {
-        return const TextStyle(color: errorColor);
+        return GoogleFonts.poppins(color: errorColor);
       }
-      return const TextStyle();
+      return GoogleFonts.poppins();
     }),
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(color: primaryColor),
