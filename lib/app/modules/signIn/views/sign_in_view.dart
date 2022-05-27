@@ -18,13 +18,14 @@ class SignInView extends GetView<SignInController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: EdgeInsets.all(6.h),
+      body: SingleChildScrollView(
         child: Align(
           alignment: const Alignment(0, -1 / 3),
-          child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
             child: Column(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   'Shopping App',
@@ -32,19 +33,19 @@ class SignInView extends GetView<SignInController> {
                     fontSize: 3.h,
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(2.h)),
+                SizedBox(height: 10.h),
                 SvgPicture.asset(
                   'assets/svg/shopping.svg',
                   height: 20.h,
                   fit: BoxFit.contain,
                 ),
-                Padding(padding: EdgeInsets.all(2.h)),
+                SizedBox(height: 3.h),
                 EmailInputView(),
-                Padding(padding: EdgeInsets.all(2.h)),
+                SizedBox(height: 5.h),
                 const PasswordInputView(),
-                Padding(padding: EdgeInsets.all(2.h)),
+                SizedBox(height: 10.h),
                 const ButtonView(),
-                Padding(padding: EdgeInsets.all(5.h)),
+                SizedBox(height: 10.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
