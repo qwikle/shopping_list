@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
@@ -11,18 +13,17 @@ class SignUp extends Equatable {
   final String passwordConfirmation;
   final String firstName;
   final String lastName;
-  final DateTime birthDay;
-  final String? avatar;
+  final String birthDay;
 
-  const SignUp(
-      {required this.email,
-      required this.emailConfirmation,
-      required this.password,
-      required this.passwordConfirmation,
-      required this.firstName,
-      required this.lastName,
-      required this.birthDay,
-      this.avatar});
+  const SignUp({
+    required this.email,
+    required this.emailConfirmation,
+    required this.password,
+    required this.passwordConfirmation,
+    required this.firstName,
+    required this.lastName,
+    required this.birthDay,
+  });
 
   factory SignUp.fromJson(Map<String, dynamic> json) => _$SignUpFromJson(json);
 
@@ -36,6 +37,5 @@ class SignUp extends Equatable {
         passwordConfirmation,
         firstName,
         lastName,
-        avatar,
       ];
 }
