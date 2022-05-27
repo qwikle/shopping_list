@@ -14,7 +14,7 @@ const Color errorColor = Color(0xffb3261E);
 BorderRadius borderRadius = BorderRadius.circular(30.h);
 
 ThemeData theme = ThemeData(
-  useMaterial3: true,
+    useMaterial3: true,
   appBarTheme: AppBarTheme(
     elevation: 0,
     backgroundColor: Colors.transparent,
@@ -71,6 +71,7 @@ ThemeData theme = ThemeData(
   textTheme: TextTheme(
     bodyText2: GoogleFonts.roboto(),
   ),
+  fontFamily: 'Roboto'
 );
 
 ThemeData darkTheme = ThemeData(scaffoldBackgroundColor: Colors.black26);
