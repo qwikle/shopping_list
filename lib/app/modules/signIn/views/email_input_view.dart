@@ -25,12 +25,14 @@ class EmailInputView extends GetView<SignInController> {
   Widget build(BuildContext context) {
     return Obx((() => TextField(
           controller: textEditingController,
+          keyboardType: TextInputType.emailAddress,
           onChanged: controller.onEmailChanged,
           decoration: InputDecoration(
               label: const Text('Email'),
               errorText: _errorMessage(),
               suffixIcon: InkWell(
                 splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
                 child: const Icon(Icons.cancel_outlined),
                 onTap: () {
                   textEditingController.clear();
