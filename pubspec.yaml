@@ -10,7 +10,7 @@ dependencies:
   get: 
   http: 0.13.4
   sizer: 2.0.15
-  flutter_svg: 1.0.3
+  flutter_svg: 1.1.0
   equatable: 2.0.3
   build_runner: 2.1.10
   badges: 2.0.2
@@ -29,3 +29,6 @@ dev_dependencies:
 
 flutter: 
   uses-material-design: true
+  assets:
+    - assets/svg/
+    - assets/icons/

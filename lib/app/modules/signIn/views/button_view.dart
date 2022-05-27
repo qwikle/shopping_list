@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,8 @@ class ButtonView extends GetView<SignInController> {
   Widget build(BuildContext context) {
     return Obx(() {
       return ElevatedButton(
-        onPressed: controller.status.value.isValid ? () => controller.signIn() : null,
+        onPressed:
+            controller.status.value.isValid ? () => controller.signIn() : null,
         child: const Text('Se connecter'),
       );
     });

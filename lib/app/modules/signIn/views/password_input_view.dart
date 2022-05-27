@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:shopping_list/app/inputs/password_input.dart';
 
+import '../../../inputs/password_input.dart';
 import '../controllers/sign_in_controller.dart';
 
 class PasswordInputView extends GetView<SignInController> {

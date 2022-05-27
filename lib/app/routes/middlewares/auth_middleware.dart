@@ -8,6 +8,7 @@ import '../app_pages.dart';
 class AuthMiddleware extends GetMiddleware {
   AuthMiddleware({this.priority});
   @override
+  // ignore: overridden_fields
   int? priority = 0;
 
   @override
