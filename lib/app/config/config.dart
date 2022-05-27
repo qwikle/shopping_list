@@ -62,12 +62,9 @@ ThemeData theme = ThemeData(
   //ElevatedButtonDecoration
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
+      onPrimary: Colors.white,
       primary: primaryColor,
       fixedSize: Size(100.w, 5.h),
-      textStyle: const TextStyle(
-        color: Colors.white,
-        fontWeight: FontWeight.bold,
-      ),
     ),
   ),
 
