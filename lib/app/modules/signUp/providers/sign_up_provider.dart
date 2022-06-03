@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
 import '../../../config/config.dart';
+import '../../../data/models/sign_up_model.dart';
 import '../../../data/models/unprocessable.model.dart';
-import '../../../data/sign_up_model.dart';
 import '../../../exceptions/sign_up_exception.dart';
 
 class SignUpProvider extends GetConnect {

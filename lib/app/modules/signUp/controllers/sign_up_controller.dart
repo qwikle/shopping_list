@@ -4,7 +4,7 @@ import 'package:formz/formz.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import '../../../data/sign_up_model.dart';
+import '../../../data/models/sign_up_model.dart';
 import '../../../exceptions/sign_up_exception.dart';
 import '../../../inputs/birth_day_input.dart';
 import '../../../inputs/confirmation_input.dart';

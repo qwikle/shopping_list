@@ -28,6 +28,6 @@ class SignInProvider extends GetConnect {
       throw const SocketException('Failed to connect to the server');
     }
 
-      throw const SocketException('Failed to connect to the server');
+    throw const SocketException('Failed to connect to the server');
   }
 }

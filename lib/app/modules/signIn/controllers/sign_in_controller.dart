@@ -33,13 +33,26 @@ class SignInController extends GetxController {
     _validateStatus();
   }
 
-  clearEmail() {
+  void clearEmail() {
     email.value = const EmailInput.dirty(value: '');
+    emailEditingController.clear();
+  }
+
+  void _clearPassword() {
+    password.value = const PasswordInput.dirty(value: '');
+    passwordEditingController.clear();
   }
 
   onPasswordChanged(String passwordValue) {
     password.value = PasswordInput.dirty(value: passwordValue);
     _validateStatus();
+  }
+
+  _signInFailure(e) {
+    Get.back();
+    _clearPassword();
+    Get.closeAllSnackbars();
+    Get.snackbar('Erreur', e.message, snackPosition: SnackPosition.BOTTOM);
   }
 
   obscureText() => obscure.toggle();
@@ -57,15 +70,9 @@ class SignInController extends GetxController {
       Get.back();
       Get.offNamed(Routes.HOME);
     } on SignInFailureException catch (e) {
-      Get.back();
-      Get.closeAllSnackbars();
-      passwordEditingController.clear();
-      Get.snackbar('Erreur', e.message, snackPosition: SnackPosition.BOTTOM);
+      _signInFailure(e);
     } on SocketException catch (e) {
-      Get.back();
-      passwordEditingController.clear();
-      Get.closeAllSnackbars();
-      Get.snackbar('Erreur', e.message, snackPosition: SnackPosition.BOTTOM);
+      _signInFailure(e);
     }
   }
 }

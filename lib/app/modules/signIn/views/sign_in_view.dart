@@ -4,12 +4,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../components/forms/email_input_view.dart';
+import '../../../components/forms/password_input_view.dart';
 import '../../../config/config.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/sign_in_controller.dart';
 import 'button_view.dart';
-import 'email_input_view.dart';
-import 'password_input_view.dart';
 
 class SignInView extends GetView<SignInController> {
   const SignInView({Key? key}) : super(key: key);
@@ -40,9 +40,22 @@ class SignInView extends GetView<SignInController> {
                   fit: BoxFit.contain,
                 ),
                 SizedBox(height: 3.h),
-                const EmailInputView(),
+                EmailInputView(
+                  input: controller.email,
+                  controller: controller.emailEditingController,
+                  label: 'Email',
+                  onChanged: controller.onEmailChanged,
+                  onTap: controller.clearEmail,
+                ),
                 SizedBox(height: 5.h),
-                const PasswordInputView(),
+                PasswordInputView(
+                  input: controller.password,
+                  label: 'Password',
+                  controller: controller.passwordEditingController,
+                  onChanged: controller.onPasswordChanged,
+                  onTap: controller.obscureText,
+                  obscure: controller.obscure,
+                ),
                 SizedBox(height: 6.h),
                 const ButtonView(),
                 SizedBox(height: 10.h),
