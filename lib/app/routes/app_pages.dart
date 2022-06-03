@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:get/get.dart';
 
 import '../modules/home/bindings/home_binding.dart';
@@ -20,24 +22,24 @@ class AppPages {
   static final routes = [
     GetPage(
         name: _Paths.HOME,
-        page: () => HomeView(),
+        page: () => const HomeView(),
         binding: HomeBinding(),
         middlewares: [
           AuthMiddleware(priority: 1),
         ]),
     GetPage(
       name: _Paths.SIGN_IN,
-      page: () => SignInView(),
+      page: () => const SignInView(),
       binding: SignInBinding(),
     ),
     GetPage(
       name: _Paths.SIGN_UP,
-      page: () => SignUpView(),
+      page: () => const SignUpView(),
       binding: SignUpBinding(),
     ),
     GetPage(
       name: _Paths.SUCESS_SIGN,
-      page: () => SucessSignView(),
+      page: () => const SucessSignView(),
       binding: SucessSignBinding(),
     ),
   ];
