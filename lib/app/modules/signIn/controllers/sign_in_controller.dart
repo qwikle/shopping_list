@@ -39,7 +39,7 @@ class SignInController extends GetxController {
   }
 
   void _clearPassword() {
-    password.value = const PasswordInput.dirty(value: '');
+    password.value = const PasswordInput.pure();
     passwordEditingController.clear();
   }
 
