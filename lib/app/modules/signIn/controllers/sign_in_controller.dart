@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import 'package:formz/formz.dart';
@@ -19,6 +21,9 @@ class SignInController extends GetxController {
   SignInProvider signProvider = Get.find<SignInProvider>();
   AuthController authController = Get.find<AuthController>();
 
+  TextEditingController emailEditingController = TextEditingController();
+  TextEditingController passwordEditingController = TextEditingController();
+
   _validateStatus() {
     status.value = Formz.validate([email.value, password.value]);
   }
@@ -37,7 +42,7 @@ class SignInController extends GetxController {
     _validateStatus();
   }
 
-  obscureText() => obscure.value = !obscure.value;
+  obscureText() => obscure.toggle();
 
   signIn() async {
     status.value = FormzStatus.submissionInProgress;
@@ -53,6 +58,12 @@ class SignInController extends GetxController {
       Get.offNamed(Routes.HOME);
     } on SignInFailureException catch (e) {
       Get.back();
+      Get.closeAllSnackbars();
+      passwordEditingController.clear();
+      Get.snackbar('Erreur', e.message, snackPosition: SnackPosition.BOTTOM);
+    } on SocketException catch (e) {
+      Get.back();
+      passwordEditingController.clear();
       Get.closeAllSnackbars();
       Get.snackbar('Erreur', e.message, snackPosition: SnackPosition.BOTTOM);
     }
