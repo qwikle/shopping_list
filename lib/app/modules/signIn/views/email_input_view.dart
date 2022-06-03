@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import '../../../inputs/email_input.dart';
 import '../controllers/sign_in_controller.dart';
 
 class EmailInputView extends GetView<SignInController> {
-  EmailInputView({Key? key}) : super(key: key);
+  const EmailInputView({Key? key}) : super(key: key);
 
-  final TextEditingController textEditingController = TextEditingController();
   String? _errorMessage() {
     if (controller.email.value.invalid) {
       if (controller.email.value.error == EmailValidationError.empty) {
@@ -24,7 +21,7 @@ class EmailInputView extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Obx((() => TextField(
-          controller: textEditingController,
+          controller: controller.emailEditingController,
           keyboardType: TextInputType.emailAddress,
           onChanged: controller.onEmailChanged,
           decoration: InputDecoration(
@@ -35,7 +32,7 @@ class EmailInputView extends GetView<SignInController> {
                 highlightColor: Colors.transparent,
                 child: const Icon(Icons.cancel_outlined),
                 onTap: () {
-                  textEditingController.clear();
+                  controller.emailEditingController.clear();
                   controller.clearEmail();
                 },
               )),

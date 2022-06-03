@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
 
-import '../../signUp/views/button_view.dart';
 import '../controllers/sign_up_controller.dart';
 
 class SignUpView extends GetView<SignUpController> {
@@ -39,7 +38,6 @@ class SignUpView extends GetView<SignUpController> {
                     fit: BoxFit.contain,
                   ),
                   SizedBox(height: 3.h),
-                  const ButtonView()
                 ],
               ),
             ),
