@@ -3,8 +3,9 @@ import 'package:get/utils.dart';
 
 enum NameValidationError {
   empty,
-  minLength,
-  maxLength,
+  tooShort,
+  invalid,
+  tooLong,
 }
 
 class NameInput extends FormzInput<String, NameValidationError> {
@@ -13,14 +14,18 @@ class NameInput extends FormzInput<String, NameValidationError> {
 
   @override
   NameValidationError? validator(String value) {
+    GetUtils.removeAllWhitespace(value);
     if (value.isEmpty) {
       return NameValidationError.empty;
     }
+    if (!GetUtils.isAlphabetOnly(value)) {
+      return NameValidationError.invalid;
+    }
     if (GetUtils.isLengthLessThan(value, 3)) {
-      return NameValidationError.minLength;
+      return NameValidationError.tooShort;
     }
     if (GetUtils.isLengthGreaterThan(value, 50)) {
-      return NameValidationError.maxLength;
+      return NameValidationError.tooLong;
     }
     return null;
   }
