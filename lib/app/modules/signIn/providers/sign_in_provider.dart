@@ -1,3 +1,4 @@
+
 import 'dart:io';
 
 import 'package:get/get.dart';
@@ -13,7 +14,6 @@ class SignInProvider extends GetConnect {
   }
 
   Future<Token> signIn(String email, String password) async {
-    try {
       final payload = {'email': email, 'password': password};
 
       final response = await post('/login', payload);
@@ -24,10 +24,6 @@ class SignInProvider extends GetConnect {
       if (response.statusCode == 400) {
         throw SignInFailureException.fromCode(response.statusCode!);
       }
-    } catch (e) {
-      throw const SocketException('Failed to connect to the server');
-    }
-
-    throw const SocketException('Failed to connect to the server');
+      throw const SocketException('Fail to connect to the server');
   }
 }
