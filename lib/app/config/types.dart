@@ -6,5 +6,7 @@ enum PasswordType {
 enum ConfirmationType {
   password,
   text,
+  email,
+  number,
   date,
 }
