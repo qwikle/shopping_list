@@ -8,23 +8,25 @@ import '../widgets/clear_suffix_icon.dart';
 import '../widgets/obscure_text_icon.dart';
 
 class ConfirmationInputView extends StatelessWidget {
-  const ConfirmationInputView({
+   ConfirmationInputView({
     Key? key,
     required this.input,
-    required this.controller,
     required this.onChanged,
-    required this.onTap,
     required this.label,
     this.type = ConfirmationType.text,
     this.obscure,
   }) : super(key: key);
   final Rx<ConfirmationInput> input;
-  final TextEditingController controller;
+  final TextEditingController controller = TextEditingController();
   final ConfirmationType type;
   final String label;
   final Rx<bool>? obscure;
   final void Function(String) onChanged;
-  final void Function()? onTap;
+
+  _onTap() {
+    input.value = const ConfirmationInput.dirty('',value: '');
+    controller.clear();
+  }
 
   _errorMessage() {
     if (input.value.invalid) {
@@ -52,7 +54,7 @@ class ConfirmationInputView extends StatelessWidget {
                   obscure: obscure!,
                 )
               : ClearSuffixIcon(
-                  onTap: onTap,
+                  onTap: _onTap,
                 ),
         ),
       ),
