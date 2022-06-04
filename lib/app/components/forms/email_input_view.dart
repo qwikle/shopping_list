@@ -11,7 +11,9 @@ class EmailInputView extends StatelessWidget {
     required this.input,
     required this.onChanged,
     required this.label,
-  }) : super(key: key);
+  }) : super(key: key) {
+    controller.text = input.value.value;
+  }
 
   final Rx<EmailInput> input;
   final TextEditingController controller = TextEditingController();

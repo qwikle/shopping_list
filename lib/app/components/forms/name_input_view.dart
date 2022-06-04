@@ -6,20 +6,24 @@ import '../../inputs/name_input.dart';
 import '../widgets/clear_suffix_icon.dart';
 
 class NameInputView extends StatelessWidget {
-  const NameInputView({
+  NameInputView({
     Key? key,
-    required this.controller,
     required this.label,
     required this.input,
     required this.onChanged,
-    required this.onTap,
-  }) : super(key: key);
+  }) : super(key: key) {
+    controller.text = input.value.value;
+  }
 
-  final TextEditingController controller;
+  final TextEditingController controller = TextEditingController();
   final String label;
   final Rx<NameInput> input;
   final void Function(String) onChanged;
-  final void Function()? onTap;
+
+  _onTap() {
+    input.value = const NameInput.dirty(value: '');
+    controller.clear();
+  }
 
   _errorMessage() {
     if (input.value.invalid) {
@@ -45,7 +49,7 @@ class NameInputView extends StatelessWidget {
             labelText: label,
             errorText: _errorMessage(),
             suffixIcon: ClearSuffixIcon(
-              onTap: onTap,
+              onTap: _onTap,
             ),
           ),
         ));

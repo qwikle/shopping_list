@@ -7,7 +7,7 @@ import '../../inputs/password_input.dart';
 import '../widgets/obscure_text_icon.dart';
 
 class PasswordInputView extends StatelessWidget {
-  const PasswordInputView({
+  PasswordInputView({
     Key? key,
     this.type = PasswordType.existPassword,
     required this.input,
@@ -15,7 +15,9 @@ class PasswordInputView extends StatelessWidget {
     required this.onChanged,
     required this.controller,
     required this.label,
-  }) : super(key: key);
+  }) : super(key: key) {
+    controller.text = input.value.value;
+  }
 
   /// Declare the type of the password input.
   /// If the type is [PasswordType.createPassword], the error message will pop if fail in regex.

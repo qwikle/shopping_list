@@ -15,7 +15,9 @@ class ConfirmationInputView extends StatelessWidget {
     required this.label,
     this.type = ConfirmationType.text,
     this.obscure,
-  }) : super(key: key);
+  }) : super(key: key) {
+    controller.text = input.value.value;
+  }
   final Rx<ConfirmationInput> input;
   final TextEditingController controller = TextEditingController();
   final ConfirmationType type;
@@ -40,11 +42,27 @@ class ConfirmationInputView extends StatelessWidget {
     return null;
   }
 
+  TextInputType _keyboardType() {
+    switch (type) {
+      case ConfirmationType.email:
+        return TextInputType.emailAddress;
+      case ConfirmationType.password:
+        return TextInputType.visiblePassword;
+      case ConfirmationType.number:
+        return TextInputType.number;
+      case ConfirmationType.date:
+        return TextInputType.datetime;
+      default:
+        return TextInputType.text;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Obx(
       () => TextField(
         controller: controller,
+        keyboardType: _keyboardType(),
         onChanged: onChanged,
         decoration: InputDecoration(
           label: Text(label),
