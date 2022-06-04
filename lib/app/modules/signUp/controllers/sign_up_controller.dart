@@ -16,6 +16,8 @@ import '../providers/sign_up_provider.dart';
 
 class SignUpController extends GetxController {
   Rx<FormzStatus> status = FormzStatus.pure.obs;
+  Rx<FormzStatus> informationStatus = FormzStatus.pure.obs;
+  Rx<FormzStatus> profileStatus = FormzStatus.pure.obs;
   Rx<EmailInput> email = const EmailInput.pure().obs;
   Rx<ConfirmationInput> emailConfirmation =
       const ConfirmationInput.pure('').obs;
@@ -26,14 +28,20 @@ class SignUpController extends GetxController {
   Rx<NameInput> lastName = const NameInput.pure('').obs;
   Rx<DateOfBirthInput> birthDay = DateOfBirthInput.pure().obs;
   Rx<bool> obscure = false.obs;
+  Rx<SignUpPage> page = SignUpPage.information.obs;
   final SignUpProvider _signUpProvider = Get.find();
   TextEditingController passwordController = TextEditingController();
-  _validateStatus() {
-    status.value = Formz.validate([
+  _validateInformationStatus() {
+    informationStatus.value = Formz.validate([
       email.value,
       emailConfirmation.value,
       password.value,
       passwordConfirmation.value,
+    ]);
+  }
+
+  _validateProfileStatus() {
+    profileStatus.value = Formz.validate([
       firstName.value,
       lastName.value,
       birthDay.value,
@@ -59,39 +67,39 @@ class SignUpController extends GetxController {
 
   onEmailChanged(String value) {
     email.value = EmailInput.dirty(value: value);
-    _validateStatus();
+    _validateInformationStatus();
   }
 
   onEmailConfirmationChanged(String value) {
     emailConfirmation.value =
         ConfirmationInput.dirty(email.value.value, value: value);
-    _validateStatus();
+    _validateInformationStatus();
   }
 
   onPasswordChanged(String value) {
     password.value = PasswordInput.dirty(value: value);
-    _validateStatus();
+    _validateInformationStatus();
   }
 
   onPasswordConfirmationChanged(String value) {
     passwordConfirmation.value =
         ConfirmationInput.dirty(password.value.value, value: value);
-    _validateStatus();
+    _validateInformationStatus();
   }
 
   onFirstNameChanged(String value) {
     firstName.value = NameInput.dirty(value: value);
-    _validateStatus();
+    _validateProfileStatus();
   }
 
   onLastNameChanged(String value) {
     lastName.value = NameInput.dirty(value: value);
-    _validateStatus();
+    _validateProfileStatus();
   }
 
   onBirthDayChanged(DateTime value) {
     birthDay.value = DateOfBirthInput.dirty(value);
-    _validateStatus();
+    _validateProfileStatus();
   }
 
   signUp() async {
@@ -125,3 +133,5 @@ class SignUpController extends GetxController {
     }
   }
 }
+
+enum SignUpPage { information, profile }
