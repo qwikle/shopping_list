@@ -25,8 +25,9 @@ class SignUpController extends GetxController {
   Rx<NameInput> firstName = const NameInput.pure('').obs;
   Rx<NameInput> lastName = const NameInput.pure('').obs;
   Rx<DateOfBirthInput> birthDay = DateOfBirthInput.pure().obs;
+  Rx<bool> obscure = false.obs;
   final SignUpProvider _signUpProvider = Get.find();
-
+  TextEditingController passwordController = TextEditingController();
   _validateStatus() {
     status.value = Formz.validate([
       email.value,
