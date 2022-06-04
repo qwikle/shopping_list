@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
 
 import '../../../components/forms/email_input_view.dart';
@@ -17,7 +18,9 @@ class SignInView extends GetView<SignInController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('Sign in'),
+      ),
       body: SingleChildScrollView(
         child: Align(
           alignment: const Alignment(0, -1 / 3),
@@ -29,7 +32,7 @@ class SignInView extends GetView<SignInController> {
               children: [
                 Text(
                   'Shopping App',
-                  style: TextStyle(
+                  style: GoogleFonts.nunitoSans(
                     fontSize: 3.h,
                   ),
                 ),
