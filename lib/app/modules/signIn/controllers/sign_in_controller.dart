@@ -20,8 +20,6 @@ class SignInController extends GetxController {
 
   SignInProvider signProvider = Get.find<SignInProvider>();
   AuthController authController = Get.find<AuthController>();
-
-  TextEditingController emailEditingController = TextEditingController();
   TextEditingController passwordEditingController = TextEditingController();
 
   _validateStatus() {
@@ -31,11 +29,6 @@ class SignInController extends GetxController {
   onEmailChanged(String emailValue) {
     email.value = EmailInput.dirty(value: emailValue);
     _validateStatus();
-  }
-
-  void clearEmail() {
-    email.value = const EmailInput.dirty(value: '');
-    emailEditingController.clear();
   }
 
   void _clearPassword() {
@@ -54,8 +47,6 @@ class SignInController extends GetxController {
     Get.closeAllSnackbars();
     Get.snackbar('Erreur', e.message, snackPosition: SnackPosition.BOTTOM);
   }
-
-  obscureText() => obscure.toggle();
 
   signIn() async {
     status.value = FormzStatus.submissionInProgress;
