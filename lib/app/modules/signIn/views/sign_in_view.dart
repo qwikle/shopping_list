@@ -42,15 +42,14 @@ class SignInView extends GetView<SignInController> {
                 SizedBox(height: 3.h),
                 EmailInputView(
                   input: controller.email,
-                  label: 'Email',
+                  label: 'Adresse mail',
                   onChanged: controller.onEmailChanged,
                 ),
                 SizedBox(height: 5.h),
                 PasswordInputView(
                   input: controller.password,
-                  label: 'Password',
+                  label: 'Mot de passe',
                   controller: controller.passwordEditingController,
-                  status: controller.status,
                   onChanged: controller.onPasswordChanged,
                   obscure: controller.obscure,
                 ),
