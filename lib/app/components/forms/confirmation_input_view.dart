@@ -8,7 +8,7 @@ import '../widgets/clear_suffix_icon.dart';
 import '../widgets/obscure_text_icon.dart';
 
 class ConfirmationInputView extends StatelessWidget {
-   ConfirmationInputView({
+  ConfirmationInputView({
     Key? key,
     required this.input,
     required this.onChanged,
@@ -24,7 +24,7 @@ class ConfirmationInputView extends StatelessWidget {
   final void Function(String) onChanged;
 
   _onTap() {
-    input.value = const ConfirmationInput.dirty('',value: '');
+    input.value = const ConfirmationInput.dirty('', value: '');
     controller.clear();
   }
 

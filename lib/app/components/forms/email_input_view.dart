@@ -6,7 +6,7 @@ import '../../inputs/email_input.dart';
 import '../widgets/clear_suffix_icon.dart';
 
 class EmailInputView extends StatelessWidget {
-   EmailInputView({
+  EmailInputView({
     Key? key,
     required this.input,
     required this.onChanged,

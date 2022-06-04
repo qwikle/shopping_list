@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopping_list/app/components/forms/confirmation_input_view.dart';
-import 'package:shopping_list/app/config/types.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../components/forms/confirmation_input_view.dart';
 import '../../../components/forms/email_input_view.dart';
 import '../../../components/forms/password_input_view.dart';
+import '../../../config/types.dart';
 import '../controllers/sign_up_controller.dart';
 
 class SignUpView extends GetView<SignUpController> {

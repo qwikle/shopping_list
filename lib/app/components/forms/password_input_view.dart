@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:get/get.dart';
 
 import '../../config/types.dart';
@@ -25,7 +26,6 @@ class PasswordInputView extends StatelessWidget {
   final TextEditingController controller;
   final void Function(String) onChanged;
 
-
   String? _errorMessage() {
     if (input.value.invalid) {
       if (input.value.error == PasswordValidationError.empty) {
@@ -41,8 +41,8 @@ class PasswordInputView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() 
-      => TextField(
+    return Obx(
+      () => TextField(
         controller: controller,
         keyboardType: TextInputType.visiblePassword,
         obscureText: obscure.value,
