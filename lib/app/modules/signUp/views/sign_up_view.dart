@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:shopping_list/app/components/forms/confirmation_input_view.dart';
+import 'package:shopping_list/app/config/types.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../components/forms/email_input_view.dart';
+import '../../../components/forms/password_input_view.dart';
 import '../controllers/sign_up_controller.dart';
 
 class SignUpView extends GetView<SignUpController> {
@@ -26,7 +31,7 @@ class SignUpView extends GetView<SignUpController> {
                 children: [
                   Text(
                     'Welcome to\nMy Shopping List Apps',
-                    style: TextStyle(
+                    style: GoogleFonts.nunitoSans(
                       fontSize: 3.h,
                     ),
                     textAlign: TextAlign.center,
@@ -38,6 +43,33 @@ class SignUpView extends GetView<SignUpController> {
                     fit: BoxFit.contain,
                   ),
                   SizedBox(height: 3.h),
+                  EmailInputView(
+                    input: controller.email,
+                    label: 'Adresse mail',
+                    onChanged: controller.onEmailChanged,
+                  ),
+                  SizedBox(height: 2.h),
+                  ConfirmationInputView(
+                    input: controller.emailConfirmation,
+                    onChanged: controller.onEmailConfirmationChanged,
+                    label: 'Confirmez votre adresse mail',
+                  ),
+                  SizedBox(height: 2.h),
+                  PasswordInputView(
+                    input: controller.password,
+                    label: 'Mot de passe',
+                    controller: controller.passwordController,
+                    onChanged: controller.onPasswordChanged,
+                    obscure: controller.obscure,
+                  ),
+                  SizedBox(height: 2.h),
+                  ConfirmationInputView(
+                    input: controller.passwordConfirmation,
+                    onChanged: controller.onPasswordConfirmationChanged,
+                    label: 'Confirmez votre mot de passe',
+                    obscure: controller.obscure,
+                    type: ConfirmationType.password,
+                  ),
                 ],
               ),
             ),
