@@ -50,7 +50,6 @@ class ConfirmationInputView extends StatelessWidget {
           suffixIcon: type == ConfirmationType.password
               ? ObscureText(
                   obscure: obscure!,
-                  onTap: onTap,
                 )
               : ClearSuffixIcon(
                   onTap: onTap,

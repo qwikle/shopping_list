@@ -6,20 +6,23 @@ import '../../inputs/email_input.dart';
 import '../widgets/clear_suffix_icon.dart';
 
 class EmailInputView extends StatelessWidget {
-  const EmailInputView({
+   EmailInputView({
     Key? key,
     required this.input,
-    required this.controller,
     required this.onChanged,
-    required this.onTap,
     required this.label,
   }) : super(key: key);
 
   final Rx<EmailInput> input;
-  final TextEditingController controller;
+  final TextEditingController controller = TextEditingController();
   final void Function(String) onChanged;
-  final void Function()? onTap;
   final String label;
+
+  _onTap() {
+    input.value = const EmailInput.dirty(value: '');
+    controller.clear();
+  }
+
   String? _errorMessage() {
     if (input.value.invalid) {
       if (input.value.error == EmailValidationError.empty) {
@@ -46,7 +49,7 @@ class EmailInputView extends StatelessWidget {
           label: Text(label),
           errorText: _errorMessage(),
           suffixIcon: ClearSuffixIcon(
-            onTap: onTap,
+            onTap: _onTap,
           ),
         ),
       ),

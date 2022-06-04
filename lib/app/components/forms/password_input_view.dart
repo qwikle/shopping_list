@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 
 import '../../config/types.dart';
@@ -15,7 +14,6 @@ class PasswordInputView extends StatelessWidget {
     required this.onChanged,
     required this.controller,
     required this.label,
-    required this.onTap,
   }) : super(key: key);
 
   /// Declare the type of the password input.
@@ -26,7 +24,7 @@ class PasswordInputView extends StatelessWidget {
   final String label;
   final TextEditingController controller;
   final void Function(String) onChanged;
-  final void Function()? onTap;
+
 
   String? _errorMessage() {
     if (input.value.invalid) {
@@ -43,8 +41,8 @@ class PasswordInputView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => TextField(
+    return Obx(() 
+      => TextField(
         controller: controller,
         keyboardType: TextInputType.visiblePassword,
         obscureText: obscure.value,
@@ -52,7 +50,9 @@ class PasswordInputView extends StatelessWidget {
         decoration: InputDecoration(
           label: Text(label),
           errorText: _errorMessage(),
-          suffixIcon: ObscureText(obscure: obscure, onTap: onTap),
+          suffixIcon: ObscureText(
+            obscure: obscure,
+          ),
         ),
       ),
     );
