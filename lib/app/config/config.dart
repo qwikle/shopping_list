@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sizer/sizer.dart';
@@ -17,8 +18,12 @@ ThemeData theme = ThemeData(
   useMaterial3: true,
   appBarTheme: AppBarTheme(
     elevation: 0,
-    backgroundColor: Colors.transparent,
+    color: Colors.transparent,
     titleTextStyle: GoogleFonts.quicksand(color: primaryColor),
+    systemOverlayStyle: const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      systemNavigationBarColor: Colors.transparent,
+    ),
     centerTitle: true,
   ),
   primaryColor: primaryColor,
