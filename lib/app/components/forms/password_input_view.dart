@@ -11,7 +11,6 @@ class PasswordInputView extends StatelessWidget {
     Key? key,
     this.type = PasswordType.existPassword,
     required this.input,
-    required this.obscure,
     required this.onChanged,
     required this.controller,
     required this.label,
@@ -23,7 +22,7 @@ class PasswordInputView extends StatelessWidget {
   /// If the type is [PasswordType.createPassword], the error message will pop if fail in regex.
   final PasswordType type;
   final Rx<PasswordInput> input;
-  final Rx<bool> obscure;
+  final Rx<bool> obscure = true.obs;
   final String label;
   final TextEditingController controller;
   final void Function(String) onChanged;

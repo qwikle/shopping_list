@@ -14,7 +14,6 @@ class ConfirmationInputView extends StatelessWidget {
     required this.onChanged,
     required this.label,
     this.type = ConfirmationType.text,
-    this.obscure,
   }) : super(key: key) {
     controller.text = input.value.value;
   }
@@ -22,7 +21,7 @@ class ConfirmationInputView extends StatelessWidget {
   final TextEditingController controller = TextEditingController();
   final ConfirmationType type;
   final String label;
-  final Rx<bool>? obscure;
+  final Rx<bool> obscure = true.obs;
   final void Function(String) onChanged;
 
   _onTap() {
@@ -69,7 +68,7 @@ class ConfirmationInputView extends StatelessWidget {
           errorText: _errorMessage(),
           suffixIcon: type == ConfirmationType.password
               ? ObscureText(
-                  obscure: obscure!,
+                  obscure: obscure,
                 )
               : ClearSuffixIcon(
                   onTap: _onTap,
