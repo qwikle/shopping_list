@@ -48,16 +48,18 @@ class SignInView extends GetView<SignInController> {
                   label: 'Adresse mail',
                   onChanged: controller.onEmailChanged,
                 ),
-                SizedBox(height: 5.h),
+                SizedBox(height: 4.h),
                 PasswordInputView(
                   input: controller.password,
                   label: 'Mot de passe',
                   controller: controller.passwordEditingController,
                   onChanged: controller.onPasswordChanged,
                 ),
+                SizedBox(height: 2.h),
+                TextButton(onPressed: () => Get.offNamed(Routes.FORGOT_PASSWORD), child: const Text('Mot de passe oublié')),
                 SizedBox(height: 6.h),
                 const ButtonView(),
-                SizedBox(height: 10.h),
+                SizedBox(height: 6.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

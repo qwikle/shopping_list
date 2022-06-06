@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/forgotPassword/bindings/forgot_password_binding.dart';
+import '../modules/forgotPassword/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/signIn/bindings/sign_in_binding.dart';
@@ -41,6 +43,11 @@ class AppPages {
       name: _Paths.SUCESS_SIGN,
       page: () => const SucessSignView(),
       binding: SucessSignBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOT_PASSWORD,
+      page: () => ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
     ),
   ];
 }
