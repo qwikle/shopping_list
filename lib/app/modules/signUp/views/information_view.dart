@@ -67,7 +67,7 @@ class InformationView extends GetView<SignUpController> {
         SizedBox(height: 6.h),
         ButtonView(
           status: controller.status,
-          onPressed: () => controller.next(),
+          onPressed: () => controller.page.value = SignUpPage.profile,
         ),
         SizedBox(height: 10.h),
         Row(
