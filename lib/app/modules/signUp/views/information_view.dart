@@ -9,7 +9,9 @@ import 'package:sizer/sizer.dart';
 import '../../../components/forms/confirmation_input_view.dart';
 import '../../../components/forms/email_input_view.dart';
 import '../../../components/forms/password_input_view.dart';
+import '../../../config/config.dart';
 import '../../../config/types.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/sign_up_controller.dart';
 import 'button_view.dart';
 
@@ -22,7 +24,7 @@ class InformationView extends GetView<SignUpController> {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         Text(
-          'Welcome to\nMy Shopping List Apps',
+          'Informations de connection',
           style: GoogleFonts.nunitoSans(
             fontSize: 3.h,
           ),
@@ -67,6 +69,20 @@ class InformationView extends GetView<SignUpController> {
           status: controller.status,
           onPressed: () => controller.next(),
         ),
+        SizedBox(height: 10.h),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Déjà un compte ? '),
+            TextButton(
+              onPressed: () => Get.offNamed(Routes.SIGN_IN),
+              child: const Text('Se connecter'),
+              style: TextButton.styleFrom(
+                primary: primaryColor,
+              ),
+            )
+          ],
+        )
       ],
     );
   }
