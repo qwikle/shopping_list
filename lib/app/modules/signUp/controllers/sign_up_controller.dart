@@ -15,24 +15,22 @@ import '../../../routes/app_pages.dart';
 import '../providers/sign_up_provider.dart';
 
 class SignUpController extends GetxController {
-  Rx<FormzStatus> status = FormzStatus.pure.obs;
-  Rx<FormzStatus> informationStatus = FormzStatus.pure.obs;
-  Rx<FormzStatus> profileStatus = FormzStatus.pure.obs;
-  Rx<EmailInput> email = const EmailInput.pure().obs;
-  Rx<ConfirmationInput> emailConfirmation =
+  final Rx<FormzStatus> status = FormzStatus.pure.obs;
+  final Rx<EmailInput> email = const EmailInput.pure().obs;
+  final Rx<ConfirmationInput> emailConfirmation =
       const ConfirmationInput.pure('').obs;
-  Rx<PasswordInput> password = const PasswordInput.pure().obs;
-  Rx<ConfirmationInput> passwordConfirmation =
+  final Rx<PasswordInput> password = const PasswordInput.pure().obs;
+  final Rx<ConfirmationInput> passwordConfirmation =
       const ConfirmationInput.pure('').obs;
-  Rx<NameInput> firstName = const NameInput.pure('').obs;
-  Rx<NameInput> lastName = const NameInput.pure('').obs;
-  Rx<DateOfBirthInput> birthDay = DateOfBirthInput.pure().obs;
-  Rx<bool> obscure = false.obs;
-  Rx<SignUpPage> page = SignUpPage.information.obs;
+  final Rx<NameInput> firstName = const NameInput.pure('').obs;
+  final Rx<NameInput> lastName = const NameInput.pure('').obs;
+  final Rx<DateOfBirthInput> birthDay = DateOfBirthInput.pure().obs;
+  final Rx<SignUpPage> page = SignUpPage.profile.obs;
   final SignUpProvider _signUpProvider = Get.find();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
   _validateInformationStatus() {
-    informationStatus.value = Formz.validate([
+    status.value = Formz.validate([
       email.value,
       emailConfirmation.value,
       password.value,
@@ -41,7 +39,7 @@ class SignUpController extends GetxController {
   }
 
   _validateProfileStatus() {
-    profileStatus.value = Formz.validate([
+    status.value = Formz.validate([
       firstName.value,
       lastName.value,
       birthDay.value,
@@ -51,6 +49,10 @@ class SignUpController extends GetxController {
   _formatDate() {
     final format = DateFormat('yyyy-MM-dd');
     return format.format(birthDay.value.value);
+  }
+
+  next() {
+    page.value = SignUpPage.profile;
   }
 
   SignUp _createPayload() {
