@@ -54,7 +54,6 @@ class SignInView extends GetView<SignInController> {
                   label: 'Mot de passe',
                   controller: controller.passwordEditingController,
                   onChanged: controller.onPasswordChanged,
-                  obscure: controller.obscure,
                 ),
                 SizedBox(height: 6.h),
                 const ButtonView(),
