@@ -45,6 +45,8 @@ class NameInputView extends StatelessWidget {
     return Obx(() => TextField(
           controller: controller,
           onChanged: onChanged,
+          keyboardType: TextInputType.name,
+          textCapitalization: TextCapitalization.words,
           decoration: InputDecoration(
             labelText: label,
             errorText: _errorMessage(),
