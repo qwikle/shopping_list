@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:shopping_list/app/config/types.dart';
 
 import '../../../data/models/sign_up_model.dart';
 import '../../../exceptions/sign_up_exception.dart';
-import '../../../inputs/birth_day_input.dart';
+import '../../../inputs/date_input.dart';
 import '../../../inputs/confirmation_input.dart';
 import '../../../inputs/email_input.dart';
 import '../../../inputs/name_input.dart';
@@ -24,7 +25,7 @@ class SignUpController extends GetxController {
       const ConfirmationInput.pure('').obs;
   final Rx<NameInput> firstName = const NameInput.pure('').obs;
   final Rx<NameInput> lastName = const NameInput.pure('').obs;
-  final Rx<DateOfBirthInput> birthDay = DateOfBirthInput.pure().obs;
+  final Rx<DateInput> birthDay = DateInput.pure().obs;
   final Rx<SignUpPage> page = SignUpPage.profile.obs;
   final SignUpProvider _signUpProvider = Get.find();
   final TextEditingController passwordController = TextEditingController();
@@ -46,11 +47,6 @@ class SignUpController extends GetxController {
     ]);
   }
 
-  _formatDate() {
-    final format = DateFormat('yyyy-MM-dd');
-    return format.format(birthDay.value.value);
-  }
-
   next() {
     page.value = SignUpPage.profile;
   }
@@ -63,7 +59,7 @@ class SignUpController extends GetxController {
       passwordConfirmation: passwordConfirmation.value.value,
       firstName: firstName.value.value,
       lastName: lastName.value.value,
-      birthDay: _formatDate(),
+      birthDay: birthDay.value.value,
     );
   }
 
@@ -99,8 +95,8 @@ class SignUpController extends GetxController {
     _validateProfileStatus();
   }
 
-  onBirthDayChanged(DateTime value) {
-    birthDay.value = DateOfBirthInput.dirty(value);
+  onBirthDayChanged(String value) {
+    birthDay.value = DateInput.dirty(value: value);
     _validateProfileStatus();
   }
 
