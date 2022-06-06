@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:formz/formz.dart';
 
 import 'package:get/get.dart';
+import 'package:shopping_list/app/components/forms/email_input_view.dart';
 import 'package:sizer/sizer.dart';
 
 import '../controllers/forgot_password_controller.dart';
@@ -23,7 +25,10 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
               SizedBox(
                 height: 6.h,
               ),
-              SvgPicture.asset('assets/svg/forgot_password.svg', height: 15.h,),
+              SvgPicture.asset(
+                'assets/svg/forgot_password.svg',
+                height: 15.h,
+              ),
               SizedBox(
                 height: 4.h,
               ),
@@ -40,14 +45,18 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
               const Text(
                   'Veuillez saisir votre adresse email. Un code vous sera transmis pour réinitialiser votre mot de passe.'),
               SizedBox(height: 3.h),
-              const TextField(
-                decoration: InputDecoration(
-                    labelText: 'Adresse email', hintText: 'j.dupont@xyz.fr'),
-              ),
+              EmailInputView(
+                  input: controller.email,
+                  onChanged: controller.onEmailChanged,
+                  label: 'Email'),
               SizedBox(
                 height: 2.h,
               ),
-              const ElevatedButton(onPressed: null, child: Text('Envoyer'))
+              Obx(() => ElevatedButton(
+                  onPressed: controller.status.value.isValid
+                      ? () => controller.sendEmail()
+                      : null,
+                  child: const Text('Envoyer')))
             ],
           ),
         ),
