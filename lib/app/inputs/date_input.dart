@@ -35,10 +35,20 @@ class DateInput extends FormzInput<String, DateValidationError> {
       int.parse(formatedValue[0]),
     );
     if (type == DateType.birthDay) {
-      final younger = DateTime.now().subtract(const Duration(
-        days: 6574,
-      ));
-      if (date.isAfter(younger)) return DateValidationError.youngerThan18;
+      if (Utils.youngerThan18(date)) {
+        return DateValidationError.youngerThan18;
+      }
+      if (Utils.olderThan100(date)) {
+        return DateValidationError.olderThan100;
+      }
+    } else if (type == DateType.pastDate) {
+      if (date.isAfter(DateTime.now())) {
+        return DateValidationError.past;
+      }
+    } else if (type == DateType.futureDate) {
+      if (date.isBefore(DateTime.now())) {
+        return DateValidationError.future;
+      }
     }
 
     return null;
