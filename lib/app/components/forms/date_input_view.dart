@@ -26,7 +26,10 @@ class DateInputView extends StatelessWidget {
         return 'Veuillez indiquer une date valide.';
       }
       if (input.value.error == DateValidationError.youngerThan18) {
-        return 'Vous devez avoir 18 ans pour vous inscrire.';
+        return 'Vous devez avoir au moins 18 ans pour vous inscrire.';
+      }
+      if (input.value.error == DateValidationError.olderThan100) {
+        return 'Vous devez avoir moins de 100 ans pour vous inscrire.';
       }
     }
     return null;
