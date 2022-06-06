@@ -16,7 +16,8 @@ enum ConfirmationType {
 
 enum DateType {
   birthDay,
-  range,
+  pastDate,
+  futureDate,
 }
 
 class Utils {
@@ -27,4 +28,12 @@ class Utils {
 
   static isFrenchDate(String value) =>
       GetUtils.hasMatch(value, r'^[0-9]{2}/[0-9]{2}/[0-9]{4}$');
+
+  static olderThan100(DateTime value) => value.isBefore(
+        DateTime.now().subtract(const Duration(days: 36500)),
+      );
+
+  static youngerThan18(DateTime value) => value.isAfter(
+        DateTime.now().subtract(const Duration(days: 6574)),
+      );
 }
