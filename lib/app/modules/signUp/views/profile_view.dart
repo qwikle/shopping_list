@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:shopping_list/app/components/forms/date_input_view.dart';
-import 'package:shopping_list/app/components/forms/name_input_view.dart';
-import 'package:shopping_list/app/modules/signUp/views/button_view.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../components/forms/date_input_view.dart';
+import '../../../components/forms/name_input_view.dart';
 import '../../../config/config.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/sign_up_controller.dart';
+import 'button_view.dart';
 
 class ProfileView extends GetView<SignUpController> {
   const ProfileView({Key? key}) : super(key: key);

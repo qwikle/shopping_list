@@ -1,5 +1,6 @@
 import 'package:formz/formz.dart';
-import 'package:shopping_list/app/config/types.dart';
+
+import '../config/types.dart';
 
 enum DateValidationError {
   empty,

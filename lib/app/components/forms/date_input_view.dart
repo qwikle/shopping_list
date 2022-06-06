@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:shopping_list/app/inputs/date_input.dart';
 
+import 'package:get/state_manager.dart';
+
+import '../../inputs/date_input.dart';
 import '../widgets/clear_suffix_icon.dart';
 
 class DateInputView extends StatelessWidget {

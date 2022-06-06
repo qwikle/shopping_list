@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 
 import '../../../data/models/sign_up_model.dart';
 import '../../../exceptions/sign_up_exception.dart';
-import '../../../inputs/date_input.dart';
 import '../../../inputs/confirmation_input.dart';
+import '../../../inputs/date_input.dart';
 import '../../../inputs/email_input.dart';
 import '../../../inputs/name_input.dart';
 import '../../../inputs/password_input.dart';
@@ -44,7 +44,6 @@ class SignUpController extends GetxController {
       birthDay.value,
     ]);
   }
-
 
   SignUp _createPayload() {
     return SignUp(
