@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
-import 'package:shopping_list/app/config/types.dart';
 
 import '../../../data/models/sign_up_model.dart';
 import '../../../exceptions/sign_up_exception.dart';
@@ -26,7 +24,7 @@ class SignUpController extends GetxController {
   final Rx<NameInput> firstName = const NameInput.pure('').obs;
   final Rx<NameInput> lastName = const NameInput.pure('').obs;
   final Rx<DateInput> birthDay = DateInput.pure().obs;
-  final Rx<SignUpPage> page = SignUpPage.profile.obs;
+  final Rx<SignUpPage> page = SignUpPage.information.obs;
   final SignUpProvider _signUpProvider = Get.find();
   final TextEditingController passwordController = TextEditingController();
 
@@ -47,9 +45,6 @@ class SignUpController extends GetxController {
     ]);
   }
 
-  next() {
-    page.value = SignUpPage.profile;
-  }
 
   SignUp _createPayload() {
     return SignUp(
