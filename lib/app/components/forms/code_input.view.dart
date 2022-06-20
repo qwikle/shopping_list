@@ -6,18 +6,23 @@ import 'package:get/get.dart';
 import '../../inputs/code_input.dart';
 
 class CodeInputView extends StatelessWidget {
-  CodeInputView({Key? key, required this.input, required this.onChanged, required this.status})
+  CodeInputView(
+      {Key? key,
+      required this.input,
+      required this.onChanged,
+      required this.status})
       : super(key: key) {
     controller.text = input.value.value;
     controller.addListener(() {
-      if(controller.text.length == 1) {
+      if (controller.text.length == 1) {
         onChanged(controller.text);
-       status.value.isInvalid ? focusNode.nextFocus() : focusNode.unfocus();
+        status.value.isInvalid ? focusNode.nextFocus() : focusNode.unfocus();
       }
     });
     focusNode.addListener(() {
       if (focusNode.hasFocus) {
         controller.clear();
+        input.value = const CodeInput.dirty(value: '');
       }
     });
   }
@@ -38,8 +43,12 @@ class CodeInputView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => SizedBox(
+    return Obx(() {
+      if (status.value.isSubmissionFailure) {
+        controller.clear();
+        input.value = const CodeInput.dirty(value: '');
+      }
+      return SizedBox(
         height: 48,
         width: 48,
         child: TextFormField(
@@ -57,7 +66,7 @@ class CodeInputView extends StatelessWidget {
                 RegExp(r'[?!@#$%^&*\(\)\[\]\{\}\\|<>/\+=_\-~`]')),
           ],
         ),
-      ),
-    );
+      );
+    });
   }
 }
