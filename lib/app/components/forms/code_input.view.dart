@@ -49,9 +49,9 @@ class CodeInputView extends StatelessWidget {
         input.value = const CodeInput.dirty(value: '');
       }
       return SizedBox(
-        height: 48,
-        width: 48,
-        child: TextFormField(
+        width: 50,
+        height: 50,
+        child: TextField(
           focusNode: focusNode,
           decoration: InputDecoration(
             errorText: _errorMessage(),
@@ -60,10 +60,11 @@ class CodeInputView extends StatelessWidget {
           textCapitalization: TextCapitalization.sentences,
           onChanged: onChanged,
           textAlign: TextAlign.center,
+          textAlignVertical: TextAlignVertical.center,
           inputFormatters: [
             LengthLimitingTextInputFormatter(1),
             FilteringTextInputFormatter.deny(
-                RegExp(r'[?!@#$%^&*\(\)\[\]\{\}\\|<>/\+=_\-~`]')),
+                RegExp(r'[?!@#$%^&*\(\)\[\]\{\}\\|<>/\+=_\-;.,~`]')),
           ],
         ),
       );
