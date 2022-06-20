@@ -12,7 +12,7 @@ class CodeTokenView extends GetView<CodeTokenController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Sign in'),
+        title: const Text('Code Verification'),
       ),
       body: Column(
         children: [
