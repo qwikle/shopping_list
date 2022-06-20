@@ -14,47 +14,55 @@ class CodeTokenView extends GetView<CodeTokenController> {
       appBar: AppBar(
         title: const Text('Code Verification'),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 8.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+      body: SingleChildScrollView(
+        child: Align(
+          alignment: const Alignment(0, -1 / 3),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                CodeInputView(
-                  status: controller.status,
-                  input: controller.codeOne,
-                  onChanged: controller.onCodeOneChanged,
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    CodeInputView(
+                      status: controller.status,
+                      input: controller.codeOne,
+                      onChanged: controller.onCodeOneChanged,
+                    ),
+                    CodeInputView(
+                      status: controller.status,
+                      input: controller.codeTwo,
+                      onChanged: controller.onCodeTwoChanged,
+                    ),
+                    CodeInputView(
+                      status: controller.status,
+                      input: controller.codeThree,
+                      onChanged: controller.onCodeThreeChanged,
+                    ),
+                    CodeInputView(
+                      status: controller.status,
+                      input: controller.codeFour,
+                      onChanged: controller.onCodeFourChanged,
+                    ),
+                    CodeInputView(
+                      status: controller.status,
+                      input: controller.codeFive,
+                      onChanged: controller.onCodeFiveChanged,
+                    ),
+                    CodeInputView(
+                      status: controller.status,
+                      input: controller.codeSix,
+                      onChanged: controller.onCodeSixChanged,
+                    )
+                  ],
                 ),
-                CodeInputView(
-                  status: controller.status,
-                  input: controller.codeTwo,
-                  onChanged: controller.onCodeTwoChanged,
-                ),
-                CodeInputView(
-                  status: controller.status,
-                  input: controller.codeThree,
-                  onChanged: controller.onCodeThreeChanged,
-                ),
-                CodeInputView(
-                  status: controller.status,
-                  input: controller.codeFour,
-                  onChanged: controller.onCodeFourChanged,
-                ),
-                CodeInputView(
-                  status: controller.status,
-                  input: controller.codeFive,
-                  onChanged: controller.onCodeFiveChanged,
-                ),
-                CodeInputView(
-                  status: controller.status,
-                  input: controller.codeSix,
-                  onChanged: controller.onCodeSixChanged,
-                )
               ],
             ),
           ),
-        ],
+        ),
       ),
     );
   }
