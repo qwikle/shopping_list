@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:shopping_list/app/modules/codeToken/bindings/code_token_binding.dart';
+import 'package:shopping_list/app/modules/codeToken/views/code_token_view.dart';
 
 import '../modules/forgotPassword/bindings/forgot_password_binding.dart';
 import '../modules/forgotPassword/views/forgot_password_view.dart';
@@ -19,7 +21,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.HOME;
+  static const INITIAL = Routes.CODE_TOKEN;
 
   static final routes = [
     GetPage(
@@ -48,6 +50,11 @@ class AppPages {
       name: _Paths.FORGOT_PASSWORD,
       page: () => ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: _Paths.CODE_TOKEN,
+      page: () => const CodeTokenView(),
+      binding: CodeTokenBinding(),
     ),
   ];
 }
