@@ -56,7 +56,9 @@ class SignInView extends GetView<SignInController> {
                   onChanged: controller.onPasswordChanged,
                 ),
                 SizedBox(height: 2.h),
-                TextButton(onPressed: () => Get.offNamed(Routes.FORGOT_PASSWORD), child: const Text('Mot de passe oublié')),
+                TextButton(
+                    onPressed: () => Get.offNamed(Routes.FORGOT_PASSWORD),
+                    child: const Text('Mot de passe oublié')),
                 SizedBox(height: 6.h),
                 const ButtonView(),
                 SizedBox(height: 6.h),
