@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
-import 'package:shopping_list/app/exceptions/forgot_password_exception.dart';
-import 'package:shopping_list/app/inputs/email_input.dart';
-import 'package:shopping_list/app/modules/forgotPassword/providers/forgot_password_provider.dart';
+
+import '../../../exceptions/forgot_password_exception.dart';
+import '../../../inputs/email_input.dart';
+import '../providers/forgot_password_provider.dart';
 
 class ForgotPasswordController extends GetxController {
   Rx<EmailInput> email = const EmailInput.pure().obs;

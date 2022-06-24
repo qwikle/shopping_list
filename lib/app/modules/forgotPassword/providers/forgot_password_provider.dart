@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:get/get.dart';
-import 'package:shopping_list/app/config/config.dart';
-import 'package:shopping_list/app/exceptions/forgot_password_exception.dart';
+
+import '../../../config/config.dart';
+import '../../../exceptions/forgot_password_exception.dart';
 
 class ForgotPasswordProvider extends GetConnect {
   @override
