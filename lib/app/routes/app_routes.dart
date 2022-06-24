@@ -11,6 +11,7 @@ abstract class Routes {
   static const SUCESS_SIGN = _Paths.SUCESS_SIGN;
   static const FORGOT_PASSWORD = _Paths.FORGOT_PASSWORD;
   static const CODE_TOKEN = _Paths.CODE_TOKEN;
+  static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const SUCESS_SIGN = '/sucess-sign';
   static const FORGOT_PASSWORD = '/forgot-password';
   static const CODE_TOKEN = '/reset-password';
+  static const RESET_PASSWORD = '/reset-password';
 }

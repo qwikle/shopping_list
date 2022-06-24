@@ -1,11 +1,13 @@
 import 'package:get/get.dart';
-import 'package:shopping_list/app/modules/codeToken/bindings/code_token_binding.dart';
-import 'package:shopping_list/app/modules/codeToken/views/code_token_view.dart';
 
+import '../modules/codeToken/bindings/code_token_binding.dart';
+import '../modules/codeToken/views/code_token_view.dart';
 import '../modules/forgotPassword/bindings/forgot_password_binding.dart';
 import '../modules/forgotPassword/views/forgot_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/resetPassword/bindings/reset_password_binding.dart';
+import '../modules/resetPassword/views/reset_password_view.dart';
 import '../modules/signIn/bindings/sign_in_binding.dart';
 import '../modules/signIn/views/sign_in_view.dart';
 import '../modules/signUp/bindings/sign_up_binding.dart';
@@ -21,7 +23,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.CODE_TOKEN;
+  static const INITIAL = Routes.HOME;
 
   static final routes = [
     GetPage(
@@ -48,13 +50,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.FORGOT_PASSWORD,
-      page: () => ForgotPasswordView(),
+      page: () => const ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
     ),
     GetPage(
       name: _Paths.CODE_TOKEN,
       page: () => const CodeTokenView(),
       binding: CodeTokenBinding(),
+    ),
+    GetPage(
+      name: _Paths.RESET_PASSWORD,
+      page: () => const ResetPasswordView(),
+      binding: ResetPasswordBinding(),
     ),
   ];
 }
