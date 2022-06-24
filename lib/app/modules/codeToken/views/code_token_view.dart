@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:shopping_list/app/components/forms/code_input.view.dart';
 import 'package:sizer/sizer.dart';
@@ -15,6 +16,7 @@ class CodeTokenView extends GetView<CodeTokenController> {
         title: const Text('Code Verification'),
       ),
       body: SingleChildScrollView(
+        padding: EdgeInsets.all(1.h),
         child: Align(
           alignment: const Alignment(0, -1 / 3),
           child: Padding(
@@ -23,6 +25,20 @@ class CodeTokenView extends GetView<CodeTokenController> {
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                SvgPicture.asset(
+                  'assets/svg/two_factor.svg',
+                  fit: BoxFit.contain,
+                  height: 20.h,
+                ),
+                SizedBox(
+                  height: 4.h,
+                ),
+                const Text(
+                  'Veuillez entrer votre code de vérification',
+                ),
+                SizedBox(
+                  height: 4.h,
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -59,6 +75,10 @@ class CodeTokenView extends GetView<CodeTokenController> {
                     )
                   ],
                 ),
+                SizedBox(
+                  height: 5.h,
+                ),
+                ElevatedButton(onPressed: null, child: Text('Send'))
               ],
             ),
           ),
