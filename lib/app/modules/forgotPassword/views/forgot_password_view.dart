@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:formz/formz.dart';
-
 import 'package:get/get.dart';
-import 'package:shopping_list/app/components/forms/email_input_view.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../components/forms/email_input_view.dart';
 import '../controllers/forgot_password_controller.dart';
 
 class ForgotPasswordView extends GetView<ForgotPasswordController> {
+  const ForgotPasswordView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Réinitilisation de votre mot de passe'),
+        title: const Text('Réinitilisation de votre mot de passe'),
       ),
       body: Align(
         alignment: const Alignment(0, -1 / 3),
