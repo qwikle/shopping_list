@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:shopping_list/app/components/forms/code_input.view.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../../components/forms/code_input.view.dart';
 import '../controllers/code_token_controller.dart';
 
 class CodeTokenView extends GetView<CodeTokenController> {
@@ -11,6 +12,8 @@ class CodeTokenView extends GetView<CodeTokenController> {
 
   @override
   Widget build(BuildContext context) {
+    controller.email.value = Get.arguments['email']!;
+    controller.type.value = Get.arguments['type']!;
     return Scaffold(
       appBar: AppBar(
         title: const Text('Code Verification'),
@@ -20,7 +23,7 @@ class CodeTokenView extends GetView<CodeTokenController> {
         child: Align(
           alignment: const Alignment(0, -1 / 3),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            padding: EdgeInsets.symmetric(horizontal: 5.w),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -78,7 +81,7 @@ class CodeTokenView extends GetView<CodeTokenController> {
                 SizedBox(
                   height: 5.h,
                 ),
-                ElevatedButton(onPressed: null, child: Text('Send'))
+                const ElevatedButton(onPressed: null, child: Text('Send'))
               ],
             ),
           ),
