@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:formz/formz.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +16,14 @@ class CodeTokenController extends GetxController {
   final Rx<CodeInput> codeSix = const CodeInput.pure().obs;
   final Rx<String> email = ''.obs;
   final Rx<String> type = ''.obs;
+  final CodetokenProvider _codetokenProvider = Get.find<CodetokenProvider>();
+  @override
+  onInit() {
+    super.onInit();
+    email.value = Get.arguments['email'];
+    type.value = Get.arguments['type']?? '';
+  }
+
   _validateStatus() async {
     status.value = Formz.validate([
       codeOne.value,
@@ -24,8 +33,7 @@ class CodeTokenController extends GetxController {
       codeFive.value,
       codeSix.value,
     ]);
-
-    if (status.value == FormzStatus.valid) {
+    if (status.value.isValid) {
       await checCode();
     }
   }
@@ -66,8 +74,12 @@ class CodeTokenController extends GetxController {
 
   checCode() async {
     status.value = FormzStatus.submissionInProgress;
+    Get.dialog(const Center(
+      child: CircularProgressIndicator(),
+    ));
     try {
-      await Get.find<CodetokenProvider>().checkCode(email.value, _getCode());
+      await _codetokenProvider.checkCode(email.value, _getCode());
+      status.value = FormzStatus.submissionSuccess;
       if (type.value == 'check_email') {
         Get.offAllNamed(Routes.HOME);
       } else {
