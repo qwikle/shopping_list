@@ -1,23 +1,13 @@
 import 'package:get/get.dart';
 
 class ResetPasswordController extends GetxController {
-  //TODO: Implement ResetPasswordController
+  final Rx<String> email = ''.obs;
+  final Rx<String> code = ''.obs;
 
-  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    email.value = Get.arguments['email'];
+    code.value = Get.arguments['code'];
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

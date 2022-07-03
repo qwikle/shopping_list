@@ -13,7 +13,7 @@ class ResetPasswordView extends GetView<ResetPasswordController> {
         title: const Text('ResetPasswordView'),
         centerTitle: true,
       ),
-      body: Center(
+      body: const Center(
         child: Text(
           'ResetPasswordView is working',
           style: TextStyle(fontSize: 20),
