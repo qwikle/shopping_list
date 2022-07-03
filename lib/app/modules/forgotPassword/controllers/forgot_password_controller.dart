@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 
 import '../../../exceptions/forgot_password_exception.dart';
 import '../../../inputs/email_input.dart';
+import '../../../routes/app_pages.dart';
 import '../providers/forgot_password_provider.dart';
 
 class ForgotPasswordController extends GetxController {
@@ -26,6 +27,10 @@ class ForgotPasswordController extends GetxController {
     try {
       await _forgotPasswordProvider.forgotPassword(email.value.value);
       status.value = FormzStatus.submissionSuccess;
+      Get.toNamed(Routes.CODE_TOKEN, arguments: {
+        'email': email.value.value,
+        'type': 'reset_password',
+      });
     } on ForgotPasswordFailureException catch (e) {
       Get.back();
       Get.closeAllSnackbars();
