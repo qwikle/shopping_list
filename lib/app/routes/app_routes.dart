@@ -21,6 +21,6 @@ abstract class _Paths {
   static const SIGN_UP = '/sign-up';
   static const SUCESS_SIGN = '/sucess-sign';
   static const FORGOT_PASSWORD = '/forgot-password';
-  static const CODE_TOKEN = '/reset-password';
+  static const CODE_TOKEN = '/code-token';
   static const RESET_PASSWORD = '/reset-password';
 }
